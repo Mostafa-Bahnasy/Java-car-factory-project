@@ -1,12 +1,29 @@
 package main.java;
 
 public class Car {
-    private CarEngine engine;
+    private  CarEngine engine;
     private final int brakeValue = 20;
     private final int accelerateValue = 20;
-    public Car(CarEngine engine) {
-        this.engine = engine;
+    
+
+    public static Car create(HybridCarFactory factory) {
+        Car newCar = new Car();
+        newCar.engine = factory.createCarEngine();
+        return newCar;
     }
+
+    public static Car create(ElectricCarFactory factory) {
+        Car newCar = new Car();
+        newCar.engine = factory.createCarEngine();
+        return newCar ;
+    }
+    
+    public static Car create(GasCarFactory factory) {
+        Car newCar = new Car();
+        newCar.engine = factory.createCarEngine(); 
+        return newCar;
+    }
+
     public void setEngine(CarEngine newEngine) {
         this.engine = newEngine;
         System.out.println("Car engine changed.");
