@@ -17,8 +17,9 @@ public class Main {
 
         // Test 2: Electric Factory & Speed Limit
         System.out.println("\n=== TEST 2: ELECTRIC CAR & LIMITS ===");
-
+        
         myCar = Car.create(new ElectricCarFactory());
+        myCar.start();
         for(int i = 0; i < 11; i++) { // Attempt to go over 200
             myCar.accelerate();
         }
